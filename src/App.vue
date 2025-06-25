@@ -1,85 +1,86 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <div class="bg-effects">
+    <div class="bg-gradient"></div>
+    <div class="floating-elements" id="floatingElements"></div>
+  </div>
+  <div>
+    <div>
+      <NavbarMain />
+      <RouterView />
+      <Footer />
     </div>
-  </header>
-
-  <RouterView />
+  </div>
 </template>
 
+<script setup>
+import { RouterView } from 'vue-router'
+import { onMounted } from 'vue'
+
+import NavbarMain from './components/NavbarMain.vue'
+import Footer from './components/Footer.vue'
+
+const name = 'AppPrimary';
+
+onMounted(() => {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href')
+      if (href && href.startsWith('#')) {
+        const target = document.querySelector(href)
+        if (target) {
+          e.preventDefault()
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }
+    })
+  })
+})
+
+</script>
+
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
+.bg-effects{
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+  height: 100%;
+  z-index: -100;
+  overflow: hidden;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+.bg-gradient{
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 20% 80%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+  animation: gradientShift 20s ease-in-out infinite;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+@keyframes gradientShift{
+  0%, 100% { transform: translate(0,0) rotate(0deg);}
+  50% {transform: translate(-3.125rem, -3.125rem) rotate(180deg)}
 }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+.floating-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
 }
 
-nav a:first-of-type {
-  border: 0;
+.floating-element {
+  position: absolute;
+  width: 0.25rem;
+  height: 0.25rem;
+  background: var(--primary-blue);
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+@keyframes float {
+  0%, 100% { transform: translateY(0rem) rotate(0deg); opacity: 0.1;}
+  50% { transform: translateY(1.875rem) rotate(180deg); opacity: 0.3;}
 }
 </style>
