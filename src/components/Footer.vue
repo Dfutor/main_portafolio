@@ -154,7 +154,7 @@ const content = ref({
     },
     {
       for: 'email',
-      name: 'Correo electronico',
+      name: 'Correo electrónico',
       inputType: 'email',
       inputId: 'email',
       inputPlaceholder: 'tu.email@ejemplo.com'

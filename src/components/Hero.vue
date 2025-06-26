@@ -55,7 +55,7 @@ import { ref } from 'vue';
 
 const selectDowload = ref('');
 const content = ref({
-  subtitle: "Desarrollador Junnior",
+  subtitle: "Desarrollador Junior",
   keyWord1: "FRONTEND",
   keyWord2: "DEVELOPER",
   description:
