@@ -59,7 +59,7 @@ const content = ref({
   keyWord1: "FRONTEND",
   keyWord2: "DEVELOPER",
   description:
-    "Vue.js | HTML | CSS | JavaScript | Git | APIs REST <br>Hola, soy <strong> Bryan Gómez </strong>, desarrollador frontend junior apasionado por construir soluciones web modernas con tecnologías como Vue.js, JavaScript, HTML y CSS.",
+    "Vue.js | HTML | CSS | JavaScript | Git | APIs REST <br>Hola, soy <strong class='dark:text-white'> Bryan Gómez </strong>, desarrollador frontend junior apasionado por construir soluciones web modernas con tecnologías como Vue.js, JavaScript, HTML y CSS.",
   sectionCards: [
     { icon: "😊", number: "3", label: "Años de Experiencia" },
     { icon: "🧑🏽‍💻", number: "3+", label: "Proyectos Completados" },

@@ -85,7 +85,7 @@
 </template>
 
 <script setup>
-import { ref, nextTick, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
 const name = 'Projects'
 
@@ -112,7 +112,7 @@ const content = ref({
             links: [
             { type: 'github', name: 'GitHub', link: 'https://github.com/Dfutor/PlantSense' }
             ],
-            image: '.main_portafolio\public\project\plantsense.png'
+            image: '@/assets/project/plantsense.png'
         },
         {
             dataProject: 'tienda-virtual',
