@@ -152,7 +152,7 @@ const menu = ref([
 
 const links = ref([
   { name: "github", link: "https://github.com/Dfutor", icon: "fa-brands fa-github-alt" },
-  { name: "linkedin", link: "https://www.linkedin.com/feed/", icon: "fab fa-linkedin" }
+  { name: "linkedin", link: "https://www.linkedin.com/in/bryan-gomez-dev/", icon: "fab fa-linkedin" }
 ]);
 
 

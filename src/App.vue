@@ -1,13 +1,15 @@
 <template>
-  <div class="bg-effects">
-    <div class="bg-gradient"></div>
-    <div class="floating-elements" id="floatingElements"></div>
-  </div>
-  <div>
+  <div class="dark">
+    <div class="bg-effects">
+      <div class="bg-gradient"></div>
+      <div class="floating-elements" id="floatingElements"></div>
+    </div>
     <div>
-      <NavbarMain />
-      <RouterView />
-      <Footer />
+      <div >
+        <NavbarMain />
+        <RouterView />
+        <Footer />
+      </div>
     </div>
   </div>
 </template>
